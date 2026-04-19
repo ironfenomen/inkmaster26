@@ -114,60 +114,61 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
         aria-hidden
         onClick={onClose}
       />
-      <div className="mobile-nav-panel" ref={panelRef}>
+      <div className="mobile-nav-panel">
         <div className="mobile-nav-panel-inner">
-          <header className="mobile-nav-top">
-            <div className="mobile-nav-brand-block">
-              <Link
-                id={titleId}
-                href="/"
-                className="brand brand--ink-wordmark mobile-nav-brand-link"
+          <div className="mobile-nav-scroll" ref={panelRef}>
+            <header className="mobile-nav-top">
+              <div className="mobile-nav-brand-block">
+                <Link
+                  id={titleId}
+                  href="/"
+                  className="brand brand--ink-wordmark mobile-nav-brand-link"
+                  onClick={onClose}
+                >
+                  <span className="brand-wordmark-line">
+                    <span className="brand-wordmark-ink">Ink</span>{" "}
+                    <span className="brand-wordmark-masters">Masters</span>
+                  </span>
+                  <span className="brand-wordmark-meta">{site.city}</span>
+                </Link>
+                <p className="mobile-nav-brand-detail">
+                  Пирогова 15 · 10:00–20:00 · по записи
+                </p>
+              </div>
+              <button
+                ref={closeBtnRef}
+                type="button"
+                className="mobile-nav-close"
+                aria-label="Закрыть меню"
                 onClick={onClose}
               >
-                <span className="brand-wordmark-line">
-                  <span className="brand-wordmark-ink">Ink</span>{" "}
-                  <span className="brand-wordmark-masters">Masters</span>
-                </span>
-                <span className="brand-wordmark-meta">{site.city}</span>
-              </Link>
-              <p className="mobile-nav-brand-detail">
-                Пирогова 15 · 10:00–20:00 · по записи
-              </p>
-            </div>
-            <button
-              ref={closeBtnRef}
-              type="button"
-              className="mobile-nav-close"
-              aria-label="Закрыть меню"
-              onClick={onClose}
-            >
-              <span className="mobile-nav-close-lines" aria-hidden />
-            </button>
-          </header>
+                <span className="mobile-nav-close-lines" aria-hidden />
+              </button>
+            </header>
 
-          <nav className="mobile-nav-scroll" aria-label="Разделы сайта">
-            <p className="mobile-nav-section-label">Разделы</p>
-            <ul className="mobile-nav-list">
-              {MAIN_NAV.map(({ href, label }) => (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    className={
-                      navActive(pathname, href)
-                        ? "mobile-nav-link mobile-nav-link--active mobile-nav-anim"
-                        : "mobile-nav-link mobile-nav-anim"
-                    }
-                    style={{ "--mn-i": nextI() } as React.CSSProperties}
-                    onClick={onClose}
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+            <nav className="mobile-nav-links" aria-label="Разделы сайта">
+              <p className="mobile-nav-section-label">Разделы</p>
+              <ul className="mobile-nav-list">
+                {MAIN_NAV.map(({ href, label }) => (
+                  <li key={href}>
+                    <Link
+                      href={href}
+                      className={
+                        navActive(pathname, href)
+                          ? "mobile-nav-link mobile-nav-link--active mobile-nav-anim"
+                          : "mobile-nav-link mobile-nav-anim"
+                      }
+                      style={{ "--mn-i": nextI() } as React.CSSProperties}
+                      onClick={onClose}
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
 
-          <div className="mobile-nav-bottom">
+            <div className="mobile-nav-bottom">
             <div
               className="mobile-nav-trust mobile-nav-anim"
               style={{ "--mn-i": nextI() } as React.CSSProperties}
@@ -178,12 +179,6 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
                 Ink Masters · {site.city}
               </p>
               <p className="mobile-nav-trust-maps">
-                <Link href="/reviews" onClick={onClose}>
-                  Отзывы
-                </Link>
-                <span className="mobile-nav-dot" aria-hidden>
-                  ·
-                </span>
                 <a href={site.twoGis} target="_blank" rel="noopener noreferrer">
                   2ГИС
                 </a>
@@ -269,6 +264,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
                 {site.city} · Пирогова 15 · Ежедневно 10:00–20:00, по записи
               </p>
             </footer>
+          </div>
           </div>
         </div>
       </div>
