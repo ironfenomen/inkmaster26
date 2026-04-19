@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { headers } from "next/headers";
 import { Manrope, Unbounded } from "next/font/google";
 import "./globals.css";
 import "./enhancements.css";
@@ -34,7 +35,8 @@ function metadataBaseUrl(): URL {
   }
 }
 
-const siteUrl = metadataBaseUrl().toString();
+/** Только origin — без path и без завершающего слэша (canonical metadata). */
+const metadataBaseOrigin = new URL(metadataBaseUrl().origin);
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -43,30 +45,39 @@ export const viewport: Viewport = {
   themeColor: "#050505",
 };
 
-export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: {
-    default: "Ink Masters — тату-студия в Ставрополе",
-    template: "%s — Ink Masters",
-  },
-  description:
-    "Тату-студия Ink Masters в Ставрополе (Пирогова 15, цоколь): запись 10:00–20:00, телефон, Telegram и VK. Галерея на 2ГИС, работы в Instagram и VK.",
-  keywords: [
-    "тату Ставрополь",
-    "татуировка Ставрополь",
-    "Ink Masters",
-    "тату мастер Ставрополь",
-    "ул. Пирогова 15",
-  ],
-  openGraph: {
-    type: "website",
-    locale: "ru_RU",
-    siteName: "Ink Masters",
-    title: "Ink Masters — тату в Ставрополе",
+/** Базовые поля + динамический canonical (путь из middleware `x-pathname`, как в sitemap). */
+export async function generateMetadata(): Promise<Metadata> {
+  const origin = metadataBaseUrl().origin.replace(/\/$/, "");
+  const pathname = (await headers()).get("x-pathname") ?? "/";
+  const canonical =
+    pathname === "/" || pathname === "" ? origin : `${origin}${pathname}`;
+
+  return {
+    metadataBase: metadataBaseOrigin,
+    title: {
+      default: "Ink Masters — тату-студия в Ставрополе",
+      template: "%s — Ink Masters",
+    },
     description:
-      "Пирогова 15, цоколь: запись и консультация. Карта, отзывы и галерея — на 2ГИС.",
-  },
-};
+      "Тату-студия Ink Masters в Ставрополе (Пирогова 15, цоколь): запись 10:00–20:00, телефон, Telegram и VK. Галерея на 2ГИС, работы в Instagram и VK.",
+    keywords: [
+      "тату Ставрополь",
+      "татуировка Ставрополь",
+      "Ink Masters",
+      "тату мастер Ставрополь",
+      "ул. Пирогова 15",
+    ],
+    openGraph: {
+      type: "website",
+      locale: "ru_RU",
+      siteName: "Ink Masters",
+      title: "Ink Masters — тату в Ставрополе",
+      description:
+        "Пирогова 15, цоколь: запись и консультация. Карта, отзывы и галерея — на 2ГИС.",
+    },
+    alternates: { canonical },
+  };
+}
 
 export default function RootLayout({
   children,

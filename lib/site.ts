@@ -26,12 +26,16 @@ export const site = {
   mapsRating: { value: 5 as const, ratingsCount: 48 },
 } as const;
 
+const publicOrigin = (
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://inkmasters26.ru"
+).replace(/\/+$/, "");
+
 export const tattooParlorLd = {
   "@context": "https://schema.org",
   "@type": "TattooParlor",
   name: "Ink Masters",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://inkmasters26.ru",
-  image: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://inkmasters26.ru"}/media/hero-showcase-main.png`,
+  url: publicOrigin,
+  image: `${publicOrigin}/media/hero-showcase-main.png`,
   address: {
     "@type": "PostalAddress",
     streetAddress: "ул. Пирогова, 15, цокольный этаж",
@@ -66,8 +70,11 @@ export function articleLd(input: {
   datePublished: string;
   dateModified?: string;
 }) {
-  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://inkmasters26.ru";
-  const url = `${base.replace(/\/$/, "")}${input.path}`;
+  const base = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://inkmasters26.ru").replace(
+    /\/+$/,
+    "",
+  );
+  const url = `${base}${input.path}`;
   return {
     "@context": "https://schema.org",
     "@type": "Article",

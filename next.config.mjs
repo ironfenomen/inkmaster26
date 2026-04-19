@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  /** Канонические URL без завершающего «/»; дубли режет middleware + редирект. */
+  trailingSlash: false,
   /**
    * Dev: путь с кириллицей + webpack HMR часто дают «Cannot find module ./NNN.js».
    * Polling + полное отключение webpack cache в dev режет скорость пересборки,
