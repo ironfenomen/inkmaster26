@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BlogSidebar } from "@/components/blog-sidebar";
 import { JsonLd } from "@/components/json-ld";
-import { articleLd, site } from "@/lib/site";
+import {
+  BlogGatedTelegramWord,
+  BlogGatedVkWord,
+} from "@/components/blog-contact-channel";
+import { articleLd } from "@/lib/site";
 
 const published = "2026-04-18";
 
@@ -103,10 +107,9 @@ export default function BlogPainPage() {
                 </p>
                 <p>
                   Если хотите обсудить зону и ощущения до визита — позвоните или
-                  напишите в <a href={site.telegram}>Telegram</a> или{" "}
-                  <a href={site.vkPersonal}>VK</a>, либо через страницу{" "}
-                  <Link href="/contacts">контактов</Link>: достаточно пары строк о
-                  идее и месте на теле.
+                  напишите в <BlogGatedTelegramWord /> или <BlogGatedVkWord />, либо
+                  через страницу <Link href="/contacts">контактов</Link>: достаточно
+                  пары строк о идее и месте на теле.
                 </p>
               </div>
             </article>

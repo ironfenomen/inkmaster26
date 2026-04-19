@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { site } from "@/lib/site";
+import { LeadTieredCta } from "@/components/lead-tiered-cta";
 
 export const metadata: Metadata = {
   title: "Услуги Ink Masters — татуировка, стили и формат работы",
@@ -269,30 +269,11 @@ export default function ServicesPage() {
                 просто: звонок, Telegram или VK — затем зона, размер, стиль и удобные даты.
                 Остальное собирается по ходу контакта.
               </p>
-              <div className="portfolio-cta-actions portfolio-cta-actions--tiered">
-                <a
-                  className="btn btn-primary"
-                  href={site.telegram}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Telegram
-                </a>
-                <a
-                  className="btn btn-secondary"
-                  href={site.vkPersonal}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  VK
-                </a>
-                <a className="btn btn-tertiary" href={`tel:${site.phoneTel}`}>
-                  Позвонить
-                </a>
+              <LeadTieredCta>
                 <Link className="btn btn-tertiary" href="/contacts#booking">
                   Записаться
                 </Link>
-              </div>
+              </LeadTieredCta>
             </div>
           </div>
         </div>

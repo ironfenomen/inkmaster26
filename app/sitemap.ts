@@ -16,6 +16,10 @@ const routes = [
   "/reviews",
   "/sterility",
   "/styles",
+  "/privacy",
+  "/consent",
+  "/cookies",
+  "/terms",
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {

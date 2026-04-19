@@ -5,6 +5,10 @@ import { JsonLd } from "@/components/json-ld";
 import { HomeCuratedGallery } from "@/components/home-curated-gallery";
 import { Marquee } from "@/components/enhancements";
 import { MapLinks } from "@/components/map-links";
+import {
+  HomeFinalBookingCta,
+  HomeHeroContactRow,
+} from "@/components/home-contact-ctas";
 import { tattooParlorLd, site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -59,22 +63,7 @@ export default function HomePage() {
                 <li>Перекрытие</li>
                 <li>Удаление тату</li>
               </ul>
-              <div className="hero-actions hero-actions--pair hero-actions--hero-focus hero-actions--ink">
-                <a
-                  className="btn btn-primary btn-hero-primary"
-                  href={site.telegram}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Telegram
-                </a>
-                <Link
-                  className="btn btn-secondary btn-hero-secondary"
-                  href="/contacts#booking"
-                >
-                  Записаться
-                </Link>
-              </div>
+              <HomeHeroContactRow />
               <p className="hero-cta-micro">
                 <Link href="#home-works">Смотреть работы</Link>
                 {" · "}
@@ -391,32 +380,7 @@ export default function HomePage() {
             <p className="home-final-cta-hint">
               Зона, идея и удобные дни — дальше собираем понятный следующий шаг без лишней переписки.
             </p>
-            <div className="cta-actions cta-actions--home-booking">
-              <a
-                className="btn btn-primary home-final-cta-primary"
-                href={site.telegram}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Telegram
-              </a>
-              <div className="home-final-cta-secondary-row">
-                <a
-                  className="btn btn-secondary home-final-cta-sub"
-                  href={site.vkPersonal}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  VK
-                </a>
-                <a
-                  className="btn btn-tertiary home-final-cta-sub"
-                  href={`tel:${site.phoneTel}`}
-                >
-                  Позвонить
-                </a>
-              </div>
-            </div>
+            <HomeFinalBookingCta />
             <p className="home-final-cta-foot">
               <Link href="/contacts#booking">Остальные контакты — на странице контактов</Link>
             </p>

@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { FooterOutboundContact } from "@/components/footer-outbound-contact";
+import { FooterTrustVkMaster } from "@/components/footer-trust-vk-master";
 import { MAIN_NAV } from "@/lib/main-nav";
 import { site } from "@/lib/site";
 
@@ -35,24 +37,7 @@ export function SiteFooter() {
         <div className="footer-col">
           <strong>Связь</strong>
           <ul className="footer-nav-list">
-            <li>
-              <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a>
-            </li>
-            <li>
-              <Link href="/contacts#booking" className="footer-book-link">
-                Записаться
-              </Link>
-            </li>
-            <li>
-              <a href={site.telegram} target="_blank" rel="noreferrer">
-                Telegram
-              </a>
-            </li>
-            <li>
-              <a href={site.vkPersonal} target="_blank" rel="noreferrer">
-                VK
-              </a>
-            </li>
+            <FooterOutboundContact />
           </ul>
         </div>
 
@@ -69,9 +54,7 @@ export function SiteFooter() {
                   {" "}
                   ·{" "}
                 </span>
-                <a href={site.vkPersonal} target="_blank" rel="noreferrer">
-                  VK мастера
-                </a>
+                <FooterTrustVkMaster />
                 <span className="footer-dot" aria-hidden>
                   {" "}
                   ·{" "}
@@ -97,6 +80,44 @@ export function SiteFooter() {
               </span>
             </p>
           </div>
+        </div>
+      </div>
+
+      <div className="footer-legal-bar">
+        <div className="container footer-legal-inner">
+          <div className="footer-legal-meta">
+            <p className="footer-legal-line footer-legal-line--lead">
+              Сайт Ink Masters принадлежит и администрируется{" "}
+              <span className="footer-legal-company">ООО «Амадеус»</span>
+            </p>
+            <p className="footer-legal-line footer-legal-line--ids">
+              ИНН 2634111890 · ОГРН 1232600005571
+            </p>
+            <p className="footer-legal-line footer-legal-line--executor">
+              <span className="footer-legal-executor-label">
+                Основной исполнитель услуг
+              </span>
+              Тату-Студия Ink Master
+            </p>
+          </div>
+          <nav
+            className="footer-legal-docs"
+            aria-label="Юридические документы"
+          >
+            <Link href="/privacy">Политика ПДн</Link>
+            <span className="footer-legal-docs-sep" aria-hidden>
+              ·
+            </span>
+            <Link href="/consent">Согласие на обработку ПДн</Link>
+            <span className="footer-legal-docs-sep" aria-hidden>
+              ·
+            </span>
+            <Link href="/cookies">Cookie и метрики</Link>
+            <span className="footer-legal-docs-sep" aria-hidden>
+              ·
+            </span>
+            <Link href="/terms">Пользовательское соглашение</Link>
+          </nav>
         </div>
       </div>
     </footer>

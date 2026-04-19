@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useId, useRef } from "react";
 import { site } from "@/lib/site";
 import { MAIN_NAV } from "@/lib/main-nav";
-
 function navActive(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
   return pathname === href || pathname.startsWith(`${href}/`);
@@ -115,8 +114,8 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
         onClick={onClose}
       />
       <div className="mobile-nav-panel">
-        <div className="mobile-nav-panel-inner">
-          <div className="mobile-nav-scroll" ref={panelRef}>
+        <div className="mobile-nav-panel-inner" ref={panelRef}>
+          <div className="mobile-nav-scroll">
             <header className="mobile-nav-top">
               <div className="mobile-nav-brand-block">
                 <Link
@@ -167,8 +166,9 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
                 ))}
               </ul>
             </nav>
+          </div>
 
-            <div className="mobile-nav-bottom">
+          <div className="mobile-nav-dock">
             <div
               className="mobile-nav-trust mobile-nav-anim"
               style={{ "--mn-i": nextI() } as React.CSSProperties}
@@ -207,6 +207,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
                 className="mobile-nav-cta-primary btn btn-primary mobile-nav-anim"
                 style={{ "--mn-i": nextI() } as React.CSSProperties}
                 onClick={onClose}
+                aria-label={`Позвонить, ${site.phoneDisplay}`}
               >
                 Позвонить
               </a>
@@ -232,39 +233,37 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
                   VK
                 </a>
               </div>
-            </div>
-
-            <footer className="mobile-nav-foot">
-              <div className="mobile-nav-social">
-                <a
-                  href={site.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Instagram
-                </a>
-                <span className="mobile-nav-dot" aria-hidden>
-                  ·
-                </span>
-                <a
-                  href={site.vkPersonal}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ВК мастера
-                </a>
-                <span className="mobile-nav-dot" aria-hidden>
-                  ·
-                </span>
-                <a href={site.vk} target="_blank" rel="noopener noreferrer">
-                  ВК студии
-                </a>
+              <div
+                className="mobile-nav-quick-tail"
+                aria-label="Соцсети студии"
+              >
+                <div className="mobile-nav-social">
+                  <a
+                    href={site.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Instagram
+                  </a>
+                  <span className="mobile-nav-dot" aria-hidden>
+                    ·
+                  </span>
+                  <a
+                    href={site.vkPersonal}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    ВК мастера
+                  </a>
+                  <span className="mobile-nav-dot" aria-hidden>
+                    ·
+                  </span>
+                  <a href={site.vk} target="_blank" rel="noopener noreferrer">
+                    ВК студии
+                  </a>
+                </div>
               </div>
-              <p className="mobile-nav-foot-note">
-                {site.city} · Пирогова 15 · Ежедневно 10:00–20:00, по записи
-              </p>
-            </footer>
-          </div>
+            </div>
           </div>
         </div>
       </div>

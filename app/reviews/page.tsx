@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { LeadTieredCta } from "@/components/lead-tiered-cta";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -114,33 +115,14 @@ export default function ReviewsPage() {
           <p className="section-desc reviews-cta-lead">
             Следующий шаг — галерея или короткое сообщение мастеру.
           </p>
-          <div className="portfolio-cta-actions portfolio-cta-actions--tiered">
-            <a
-              className="btn btn-primary"
-              href={site.telegram}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Telegram
-            </a>
-            <a
-              className="btn btn-secondary"
-              href={site.vkPersonal}
-              target="_blank"
-              rel="noreferrer"
-            >
-              VK
-            </a>
-            <a className="btn btn-tertiary" href={`tel:${site.phoneTel}`}>
-              Позвонить
-            </a>
+          <LeadTieredCta>
             <Link className="btn btn-tertiary" href="/portfolio">
               Портфолио
             </Link>
             <Link className="btn btn-tertiary" href="/contacts#booking">
               Записаться
             </Link>
-          </div>
+          </LeadTieredCta>
         </div>
       </section>
     </main>

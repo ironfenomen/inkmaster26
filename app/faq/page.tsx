@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { LeadTieredCta } from "@/components/lead-tiered-cta";
 import { JsonLd } from "@/components/json-ld";
 import { faqLd, faqPageItems } from "@/lib/faq";
-import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "FAQ — быстрые ответы о тату | Ink Masters",
@@ -60,30 +60,11 @@ export default function FaqPage() {
                 Телефон, адрес и остальные каналы связи — на{" "}
                 <Link href="/contacts">странице контактов</Link>.
               </p>
-              <div className="portfolio-cta-actions portfolio-cta-actions--tiered">
-                <a
-                  className="btn btn-primary"
-                  href={site.telegram}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Telegram
-                </a>
-                <a
-                  className="btn btn-secondary"
-                  href={site.vkPersonal}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  VK
-                </a>
-                <a className="btn btn-tertiary" href={`tel:${site.phoneTel}`}>
-                  Позвонить
-                </a>
+              <LeadTieredCta>
                 <Link className="btn btn-tertiary" href="/contacts#booking">
                   Записаться
                 </Link>
-              </div>
+              </LeadTieredCta>
             </div>
           </div>
         </section>

@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BlogSidebar } from "@/components/blog-sidebar";
 import { JsonLd } from "@/components/json-ld";
-import { articleLd, site } from "@/lib/site";
+import { BlogContactChannelLine } from "@/components/blog-contact-channel";
+import { articleLd } from "@/lib/site";
 
 const published = "2026-04-18";
 
@@ -93,9 +94,14 @@ export default function BlogPreparationPage() {
                   <Link href="/blog/pain">статья про боль</Link>.
                 </p>
                 <p>
-                  Запись: <a href={site.telegram}>Telegram</a>,{" "}
-                  <a href={site.vkPersonal}>VK</a>,{" "}
-                  <Link href="/contacts#booking">страница контактов</Link>.
+                  <BlogContactChannelLine
+                    variant="booking"
+                    suffix={
+                      <>
+                        , <Link href="/contacts#booking">страница контактов</Link>.
+                      </>
+                    }
+                  />
                 </p>
               </div>
             </article>

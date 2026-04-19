@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { site } from "@/lib/site";
+import { LeadTieredCta } from "@/components/lead-tiered-cta";
 
 export const metadata: Metadata = {
   title: "Цены на тату в Ink Masters — от чего зависит стоимость",
@@ -162,30 +162,11 @@ export default function PricesPage() {
                 Звонок, Telegram или VK: фото зоны, примерный размер, идея и референсы.
                 После этого мастер отвечает, и следующий шаг уже понятен.
               </p>
-              <div className="portfolio-cta-actions portfolio-cta-actions--tiered">
-                <a
-                  className="btn btn-primary"
-                  href={site.telegram}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Telegram
-                </a>
-                <a
-                  className="btn btn-secondary"
-                  href={site.vkPersonal}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  VK
-                </a>
-                <a className="btn btn-tertiary" href={`tel:${site.phoneTel}`}>
-                  Позвонить
-                </a>
+              <LeadTieredCta>
                 <Link className="btn btn-tertiary" href="/contacts#booking">
                   Записаться
                 </Link>
-              </div>
+              </LeadTieredCta>
             </div>
           </div>
         </div>

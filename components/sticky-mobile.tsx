@@ -1,3 +1,5 @@
+"use client";
+
 import { site } from "@/lib/site";
 
 export function StickyMobile() {
@@ -19,7 +21,11 @@ export function StickyMobile() {
       >
         VK
       </a>
-      <a className="sticky-mobile-secondary" href={`tel:${site.phoneTel}`}>
+      <a
+        className="sticky-mobile-secondary"
+        href={`tel:${site.phoneTel}`}
+        aria-label={`Позвонить, ${site.phoneDisplay}`}
+      >
         Позвонить
       </a>
     </div>

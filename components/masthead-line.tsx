@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { MastheadVkMasterLink } from "@/components/masthead-vk-master-link";
 import { media, mediaAlt } from "@/lib/media";
 import { site } from "@/lib/site";
 
@@ -69,9 +70,7 @@ export function MastheadLine({ compact = false }: MastheadLineProps) {
               VK студии
             </a>
             ,{" "}
-            <a href={site.vkPersonal} target="_blank" rel="noreferrer">
-              VK мастера
-            </a>
+            <MastheadVkMasterLink />
             .
           </span>
         </span>

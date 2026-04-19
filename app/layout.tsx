@@ -6,6 +6,8 @@ import { ScrollProgress, CustomCursor, ScrollRevealInit } from "@/components/enh
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { StickyMobile } from "@/components/sticky-mobile";
+import { CookieConsentBanner } from "@/components/cookie-consent-banner";
+import { YandexMetrika } from "@/components/yandex-metrika";
 
 const display = Unbounded({
   subsets: ["latin", "cyrillic"],
@@ -81,6 +83,8 @@ export default function RootLayout({
         {children}
         <SiteFooter />
         <StickyMobile />
+        <CookieConsentBanner />
+        <YandexMetrika />
       </body>
     </html>
   );

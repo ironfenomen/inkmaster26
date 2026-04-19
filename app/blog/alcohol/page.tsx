@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BlogSidebar } from "@/components/blog-sidebar";
 import { JsonLd } from "@/components/json-ld";
-import { articleLd, site } from "@/lib/site";
+import { BlogContactChannelLine } from "@/components/blog-contact-channel";
+import { articleLd } from "@/lib/site";
 
 const published = "2026-04-18";
 
@@ -80,8 +81,7 @@ export default function BlogAlcoholPage() {
                   <Link href="/faq">FAQ</Link>, <Link href="/sterility">стерильность</Link>.
                 </p>
                 <p>
-                  Запись: <a href={site.telegram}>Telegram</a>,{" "}
-                  <a href={site.vkPersonal}>VK</a>.
+                  <BlogContactChannelLine variant="booking" suffix="." />
                 </p>
               </div>
             </article>

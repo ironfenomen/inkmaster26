@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { GatedVkPersonalLink } from "@/components/gated-site-links";
+import { LeadTieredCta } from "@/components/lead-tiered-cta";
 import { FigureImage } from "@/components/figure-image";
 import { curatedPortfolioImages } from "@/lib/curated-portfolio";
 import { STYLE_SHOWCASE_EXAMPLES } from "@/lib/styles-showcase";
@@ -263,9 +265,7 @@ export default function StylesPage() {
                 Instagram
               </a>{" "}
               и{" "}
-              <a href={site.vkPersonal} target="_blank" rel="noreferrer">
-                VK мастера
-              </a>
+              <GatedVkPersonalLink>VK мастера</GatedVkPersonalLink>
               . Цифры без сюрпризов — в <Link href="/prices">разделе о ценах</Link>.
             </p>
           </div>
@@ -276,33 +276,14 @@ export default function StylesPage() {
               Опишите словами или киньте кадр из нашей галереи — разберём по
               телефону, в Telegram или VK. Достаточно короткого описания и одного-двух референсов.
             </p>
-            <div className="portfolio-cta-actions portfolio-cta-actions--tiered">
-              <a
-                className="btn btn-primary"
-                href={site.telegram}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Telegram
-              </a>
-              <a
-                className="btn btn-secondary"
-                href={site.vkPersonal}
-                target="_blank"
-                rel="noreferrer"
-              >
-                VK
-              </a>
-              <a className="btn btn-tertiary" href={`tel:${site.phoneTel}`}>
-                Позвонить
-              </a>
+            <LeadTieredCta>
               <Link className="btn btn-tertiary" href="/portfolio">
                 Портфолио
               </Link>
               <Link className="btn btn-tertiary" href="/contacts#booking">
                 Записаться
               </Link>
-            </div>
+            </LeadTieredCta>
           </div>
         </div>
       </section>

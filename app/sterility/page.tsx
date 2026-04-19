@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  GatedTelegramLink,
+  GatedWhatsAppLink,
+} from "@/components/gated-site-links";
+import { LeadTieredCta } from "@/components/lead-tiered-cta";
 import { firmGallerySource } from "@/lib/media";
 import { site } from "@/lib/site";
 
@@ -25,13 +30,8 @@ export default function SterilityPage() {
           Чистое рабочее место, одноразовые расходники там, где это нужно, и понятный
           порядок сеанса. Адрес и карты — в{" "}
           <Link href="/contacts#contacts-place">контактах</Link>, запись — через{" "}
-          <a href={site.whatsapp} target="_blank" rel="noreferrer">
-            WhatsApp
-          </a>{" "}
-          или{" "}
-          <a href={site.telegram} target="_blank" rel="noreferrer">
-            Telegram
-          </a>
+          <GatedWhatsAppLink>WhatsApp</GatedWhatsAppLink> или{" "}
+          <GatedTelegramLink>Telegram</GatedTelegramLink>
           . Ниже — как это устроено в работе.
         </p>
       </div>
@@ -133,33 +133,11 @@ export default function SterilityPage() {
               — на{" "}
               <Link href="/contacts">странице контактов</Link>.
             </p>
-            <div className="portfolio-cta-actions portfolio-cta-actions--tiered">
-              <a
-                className="btn btn-primary"
-                href={site.telegram}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Telegram
-              </a>
-              <a
-                className="btn btn-secondary"
-                href={site.vkPersonal}
-                target="_blank"
-                rel="noreferrer"
-              >
-                VK
-              </a>
-              <a
-                className="btn btn-tertiary"
-                href={`tel:${site.phoneTel}`}
-              >
-                Позвонить
-              </a>
+            <LeadTieredCta>
               <Link className="btn btn-tertiary" href="/contacts#booking">
                 Записаться
               </Link>
-            </div>
+            </LeadTieredCta>
           </div>
         </div>
       </section>

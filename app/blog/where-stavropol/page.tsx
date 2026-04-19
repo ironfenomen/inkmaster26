@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BlogSidebar } from "@/components/blog-sidebar";
 import { JsonLd } from "@/components/json-ld";
-import { articleLd, site } from "@/lib/site";
+import { BlogContactChannelLine } from "@/components/blog-contact-channel";
+import { articleLd } from "@/lib/site";
 
 const published = "2026-04-18";
 
@@ -101,8 +102,14 @@ export default function BlogWhereStavropolPage() {
                   пункта в порядке, тревоги становится меньше.
                 </p>
                 <p>
-                  Написать в Ink Masters: <a href={site.telegram}>Telegram</a>,{" "}
-                  <a href={site.vkPersonal}>VK</a>, <Link href="/contacts">контакты</Link>.
+                  <BlogContactChannelLine
+                    variant="write_ink"
+                    suffix={
+                      <>
+                        , <Link href="/contacts">контакты</Link>.
+                      </>
+                    }
+                  />
                 </p>
               </div>
             </article>

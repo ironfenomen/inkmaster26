@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ContactsStudioMap } from "@/components/contacts-studio-map";
+import {
+  GatedTelLink,
+  GatedVkPersonalLink,
+} from "@/components/gated-site-links";
+import { LeadTieredCta } from "@/components/lead-tiered-cta";
 import { JsonLd } from "@/components/json-ld";
 import { tattooParlorLd, site } from "@/lib/site";
 
@@ -32,31 +37,7 @@ export default function ContactsPage() {
             <p className="contacts-booking-hint">
               Напишите в удобный канал — мастер сам ответит и подхватит следующий шаг.
             </p>
-            <div className="portfolio-cta-actions portfolio-cta-actions--tiered contacts-booking-actions">
-              <a
-                className="btn btn-primary"
-                href={site.telegram}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Telegram
-              </a>
-              <a
-                className="btn btn-secondary"
-                href={site.vkPersonal}
-                target="_blank"
-                rel="noreferrer"
-              >
-                VK
-              </a>
-              <a
-                className="btn btn-tertiary"
-                href={`tel:${site.phoneTel}`}
-                aria-label={`Позвонить, ${site.phoneDisplay}`}
-              >
-                Позвонить
-              </a>
-            </div>
+            <LeadTieredCta tierClassName="portfolio-cta-actions portfolio-cta-actions--tiered contacts-booking-actions" />
             <p className="small contacts-booking-meta">
               {site.phoneDisplay} ·{" "}
               <Link href="#contacts-place">Адрес и карты</Link> ·{" "}
@@ -120,7 +101,7 @@ export default function ContactsPage() {
                     <tr>
                       <th>Телефон</th>
                       <td>
-                        <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a>
+                        <GatedTelLink />
                       </td>
                     </tr>
                   </tbody>
@@ -148,9 +129,7 @@ export default function ContactsPage() {
                     <a href={site.instagram} target="_blank" rel="noreferrer">
                       Instagram
                     </a>
-                    <a href={site.vkPersonal} target="_blank" rel="noreferrer">
-                      VK мастера
-                    </a>
+                    <GatedVkPersonalLink>VK мастера</GatedVkPersonalLink>
                     <a href={site.vk} target="_blank" rel="noreferrer">
                       VK студии
                     </a>
