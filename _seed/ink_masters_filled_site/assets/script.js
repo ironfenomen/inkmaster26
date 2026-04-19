@@ -1,0 +1,1 @@
+document.querySelectorAll('[data-current]').forEach(el=>{const c=el.getAttribute('data-current');document.querySelectorAll('.nav a,.side-nav a').forEach(a=>{if((a.getAttribute('href')||'')===c){a.classList.add('active')}})});

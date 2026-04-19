@@ -3,10 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "clean": "rm -rf .next .turbo node_modules/.cache",
     "dev": "next dev",
+    "dev:3001": "WATCHPACK_POLLING=true PORT=3001 next dev -p 3001",
+    "dev:clean": "npm run clean && next dev",
+    "dev:3001:clean": "npm run clean && WATCHPACK_POLLING=true PORT=3001 next dev -p 3001",
+    "dev:turbo": "next dev --turbo",
+    "dev:3001:turbo": "PORT=3001 next dev --turbo -p 3001",
+    "dev:turbo:clean": "npm run clean && next dev --turbo",
+    "dev:3001:turbo:clean": "npm run clean && PORT=3001 next dev --turbo -p 3001",
+    "dev:fast": "next dev",
+    "dev:3001:fast": "WATCHPACK_POLLING=true PORT=3001 next dev -p 3001",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "sync:2gis-gallery": "python3 scripts/sync-2gis-firm-gallery.py"
   },
   "dependencies": {
     "react": "^18",
