@@ -3,7 +3,7 @@ import Link from "next/link";
 import { LeadTieredCta } from "@/components/lead-tiered-cta";
 
 export const metadata: Metadata = {
-  title: "Услуги Ink Masters — татуировка, стили и формат работы",
+  title: "Услуги тату-студии в Ставрополе — Ink Masters: тату на заказ, перекрытие, удаление",
   description:
     "Тату на заказ, перекрытие, доработка, консультация и удаление тату в Ink Masters, Ставрополь: стили, зоны, ход работы и цены. Запись через контакты.",
 };

@@ -35,7 +35,12 @@ export const tattooParlorLd = {
   "@type": "TattooParlor",
   name: "Ink Masters",
   url: publicOrigin,
-  image: `${publicOrigin}/media/hero-showcase-main.png`,
+  image: [
+    `${publicOrigin}/media/hero-showcase-main.png`,
+    `${publicOrigin}/media/portfolio-1.jpg`,
+    `${publicOrigin}/media/portfolio-2.jpg`,
+    `${publicOrigin}/media/portfolio-3.jpg`,
+  ],
   address: {
     "@type": "PostalAddress",
     streetAddress: "ул. Пирогова, 15, цокольный этаж",
@@ -44,8 +49,35 @@ export const tattooParlorLd = {
     postalCode: site.postalCode,
     addressCountry: "RU",
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: "45.012436",
+    longitude: "41.913146",
+  },
   telephone: site.phoneTel,
+  priceRange: "₽₽",
   openingHours: "Mo-Su 10:00-20:00",
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+      opens: "10:00",
+      closes: "20:00",
+    },
+  ],
+  areaServed: {
+    "@type": "City",
+    name: "Ставрополь",
+  },
+  hasMap: site.twoGis,
   sameAs: [
     site.vk,
     site.vkPersonal,

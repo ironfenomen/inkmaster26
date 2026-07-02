@@ -13,9 +13,9 @@ import { tattooParlorLd, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title:
-    "Тату-студия в Ставрополе — Ink Masters, мастер Денис | запись по телефону и мессенджерам",
+    "Тату-студия и тату-мастер в Ставрополе — Ink Masters (Денис) | запись, портфолио, цены",
   description:
-    "Ink Masters, Ставрополь: Денис, Пирогова 15 (цоколь), 10:00–20:00 по записи. Галерея на сайте; карты и отзывы — 2ГИС и Яндекс. Звонок, Telegram, VK.",
+    "Тату-студия Ink Masters в Ставрополе: мастер Денис Сафи, ул. Пирогова 15 (цоколь), запись 10:00–20:00. Портфолио, цены от 3000 ₽, перекрытие и удаление тату. Рейтинг 5.0 (48 оценок) на 2ГИС и Яндекс.",
 };
 
 export default function HomePage() {
@@ -112,7 +112,7 @@ export default function HomePage() {
                   <div className="photo-card large has-photo hero-photo-card--ink">
                     <Image
                       src="/media/hero-showcase-main.png"
-                      alt="Black & grey тату на предплечье: портрет, череп и орнамент — работа Ink Masters"
+                      alt="Black & grey тату на предплечье: портрет, череп и орнамент — работа тату-студии Ink Masters, Ставрополь"
                       fill
                       priority
                       sizes="(max-width: 760px) 100vw, 42vw"
