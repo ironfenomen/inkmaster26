@@ -31,9 +31,12 @@ const staticRoutes: Entry[] = [
   { path: "/terms", changeFrequency: "yearly", priority: 0.35 },
 ];
 
+/** Дата последнего SEO-обновления контента (green-zone правки 2026-07-02). */
+const CONTENT_LAST_UPDATED = new Date("2026-07-02T00:00:00Z");
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = getPublicSiteUrl().replace(/\/$/, "");
-  const lastModified = new Date();
+  const lastModified = CONTENT_LAST_UPDATED;
 
   const main: MetadataRoute.Sitemap = staticRoutes.map(({ path, changeFrequency, priority }) => ({
     url: path === "" ? base : `${base}${path}`,
